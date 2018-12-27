@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View } from 'react-native';
+import { ScrollView } from 'react-native';
 import AlbumDetail from './AlbumDetail';
 
 class AlbumList extends Component {
@@ -11,7 +11,6 @@ class AlbumList extends Component {
         fetch("https://rallycoding.herokuapp.com/api/music_albums")
         .then(response => response.json())
         .then(json =>  {
-            console.log(json);
             this.setState({ albums: json });
         })
         .catch(e => console.error(e));
@@ -23,7 +22,7 @@ class AlbumList extends Component {
 
     render() {
         return (
-            <View>{this.renderAlbumFromStates()}</View>
+            <ScrollView>{this.renderAlbumFromStates()}</ScrollView>
         );
     }
 }
